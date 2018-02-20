@@ -1,0 +1,12 @@
+<% unless @product_properties.empty? %>
+<h6 class="product-section-title"><%= t('properties')%></h6>
+  <ul class="list-group" id="product-properties" data-hook>
+    <% @product_properties.each do |product_property| %>
+      <li class="list-group-item">
+        <span class="badge"><%= product_property.value %></span>
+        <%= product_property.property.presentation %>
+      </li>
+    <% end %>
+    <% reset_cycle('properties') %>
+  </ul>
+<% end %>
