@@ -2,6 +2,13 @@
   <%= f.label :email, Spree.t(:email) %>
   <%= f.email_field :email, class: 'title form-control' %>
 </div>
+
+<div class="form-group">
+  <%#= f.label :fis_number, Spree.t(:fis_number) %>
+  <label>FIS Number</label>
+  <%= f.text_field :fis_number, class: 'title form-control' %>
+</div>
+
 <div id="password-credentials">
   <div class="form-group">
     <%= f.label :password, Spree.t(:password) %>
