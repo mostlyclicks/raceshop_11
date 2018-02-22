@@ -1,6 +1,8 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
+
+
+<%= form_tag spree.products_path, method: :get, class: 'form-inline' do %>
 <div class="form-group">
-<%= form_tag spree.products_path, method: :get do %>
   <% cache [I18n.locale, @taxons] do %>
     <%= select_tag :taxon,
           options_for_select([[t('spree.all_departments'), '']] +
@@ -10,5 +12,6 @@
   <% end %>
   <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control' %>
   <%= submit_tag t('spree.search'), name: nil, class: 'btn btn-success' %>
+  </div>
 <% end %>
-</div>
+

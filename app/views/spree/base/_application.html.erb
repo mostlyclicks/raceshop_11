@@ -2,6 +2,12 @@
 
   <div class="container">
 
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-5 col-md-offset-7 text-center">
+      <%= render partial: 'spree/shared/search' %>
+    </div>
+  </div>
+
   <div id="wrapper" class="row" data-hook>
 
     <%= taxon_breadcrumbs(@taxon) %>
@@ -10,6 +16,7 @@
 
     <div id="content" class="columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
       <%= flash_messages %>
+      
       <%= yield %>
     </div>
 
