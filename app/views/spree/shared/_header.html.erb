@@ -31,10 +31,25 @@
       	<% end %>
       </ul>
 
+      <ul class="nav navbar-nav navbar-right">
+        <% if spree_user_signed_in? %>
+          <li>
+            <%= link_to 'Logout', logout_path %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Sign up', signup_path %>
+          </li>
+          <li>
+            <%= link_to "Login", login_path %>
+          </li>
+        <% end %>
+      </ul>
+
       <ul class="nav navbar-nav navbar-right navbar-form">
         <%= render partial: 'spree/shared/search' %>
-
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li id="link-to-cart" data-hook>
           <noscript>
