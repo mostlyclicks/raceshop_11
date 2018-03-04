@@ -46,7 +46,7 @@
             <%= link_to spree_current_user.email, edit_account_path(spree_current_user) %>    
           </li>
           <li>
-            <%= link_to ('FIS#: ' + spree_current_user.fis_number), edit_account_path(spree_current_user) %>
+            <%= link_to ('FIS#: ' + spree_current_user.fis_number), edit_account_path(spree_current_user) unless spree_current_user.fis_number.nil? %>
           </li>
         <% end %>  
 
