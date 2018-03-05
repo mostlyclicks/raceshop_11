@@ -16,15 +16,23 @@
             <%= form.email_field :email, required: true %>
           </p>
         <% end %>
+        <%= @order.state? %>
         <%= render @order.state, form: form %>
+
+<!--         <%# if @order.state != 'confirm' %>
+          <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-2" style="border:1px solid red;">
+            <%#= render partial: 'summary', locals: { order: @order } %>
+          </div>
+        <%# end %> -->
+
+
       <% end %>
+
+
+
     </div>
 
-    <% if @order.state != 'confirm' %>
-      <div id="checkout-summary" data-hook="checkout_summary_box" class="columns omega four">
-        <%= render partial: 'summary', locals: { order: @order } %>
-      </div>
-    <% end %>
+
 
   </div>
 </div>
