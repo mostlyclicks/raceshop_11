@@ -1,7 +1,25 @@
+<div class="row main-categories">
+	<div class="col-sm-2">Skis</div>
+	<div class="col-sm-2">Boots</div>
+	<div class="col-sm-2">Poles</div>
+	<div class="col-sm-2">Bindings</div>
+	<div class="col-sm-2">Bags</div>
+	<div class="col-sm-2">Accessories</div>
+</div>
+<div class="row">
+	<div class="col-md-2 col-md-offset-1">Rossignol</div>
+	<div class="col-md-2">Dynastar</div>
+	<div class="col-md-2">Lange</div>
+	<div class="col-md-2">LOOK</div>
+	<div class="col-md-2">Kerma</div>
+</div>
+
+
+
 
 		<% content_for :sidebar do %>
 		  <div data-hook="homepage_sidebar_navigation">
-		    <%= render partial: 'spree/shared/taxonomies' %>
+		    <%#= render partial: 'spree/shared/taxonomies' %>
 		  </div>
 		<% end %>		
 
@@ -9,6 +27,6 @@
 
 		<div data-hook="homepage_products">
 		  <% cache(cache_key_for_products) do %>
-		    <%= render partial: 'spree/shared/products', locals: { products: @products } %>
+		    <%#= render partial: 'spree/shared/products', locals: { products: @products } %>
 		  <% end %>
 		</div>
