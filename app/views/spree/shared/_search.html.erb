@@ -1,46 +1,45 @@
 
 
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
-<% max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+<%# max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
 
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-
-      <div class="input-group">
-
-<% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
-
-
-<%= form_tag spree.products_path, method: :get, class: 'form-inline' do %>
-<div class="form-group">
-  <% cache [I18n.locale, @taxons] do %>
-    <%= select_tag :taxon,
-          options_for_select([[t('spree.all_departments'), '']] +
-                                @taxons.map {|t| [t.name, t.id]},
-                                @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon',
-                                class: 'form-control' %>
-  <% end %>
-  <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control' %>
-  <%= submit_tag t('spree.search'), name: nil, class: 'btn btn-success' %>
+<div class="container">
+    <div class="row">    
+        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+          <%= form_tag spree.products_path, method: :get do %>
+            <div class="input-group">
+                
+                <div class="input-group-btn search-panel">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                      <span id="search_concept">Filter by</span> <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
+                      <li><%= link_to t('spree.all_departments'), '' %></li>
+                      <% @taxons.each do |taxon| %>
+                        <li><%= link_to taxon.name, taxon.id.to_s %></li>
+                      <% end %>
+                    </ul>
+                </div>
+                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control' %>
+                <span class="input-group-btn">
+                  <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+                    <span class="glyphicon glyphicon-search"></span>
+                  <% end %>
+                  <%#= submit_tag (<span class="glyphicon glyphicon-search"></span>).to_html', name: nil, class: 'btn btn-default' %>
+                    <!-- <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></span> -->
+                
+                
+            </div>
+            <% end %>
+        </div>
   </div>
-<% end %>
+</div>
 
-   </div>
-  </div>
-
-
-
-          <%# cache [I18n.locale, @taxons] do %>
-            <%#= select_tag :taxon,
-                  options_for_select([[t('spree.all_departments'), '']] +
-                                        @taxons.map {|t| [t.name, t.id]},
-                                        @taxon ? @taxon.id : params[:taxon]), 'aria-label' => 'Taxon',
-                                        class: 'form-control' %>
-          <%# end %>
-
-
-
-<!--
+<!-- <div class="container">
+    <div class="row">    
+        <div class="col-xs-8 col-xs-offset-2">
+        <div class="input-group">
                 <div class="input-group-btn search-panel">
                     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                       <span id="search_concept">Filter by</span> <span class="caret"></span>
@@ -54,10 +53,26 @@
                       <li><a href="#all">Anything</a></li>
                     </ul>
                 </div>
-
                 <input type="hidden" name="search_param" value="all" id="search_param">         
                 <input type="text" class="form-control" name="x" placeholder="Search term...">
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                 </span>
-            </div>-->
+            </div>
+        </div>
+  </div>
+</div> -->
+
+
+
+<script>
+  $(document).ready(function(e){
+    $('.search-panel .dropdown-menu').find('a').click(function(e) {
+    e.preventDefault();
+    var param = $(this).attr("href").replace("#","");
+    var concept = $(this).text();
+    $('.search-panel span#search_concept').text(concept);
+    $('.input-group #search_param').val(param);
+  });
+});
+</script>
