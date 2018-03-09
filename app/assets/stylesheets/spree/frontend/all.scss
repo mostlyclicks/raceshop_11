@@ -6,3 +6,8 @@
 @import "spree/frontend/auth";
 @import "spree/frontend/home";
 @import "spree/frontend/responsive";
+
+$mon-font: 'Montserrat', sans-serif;
+h2 {
+	font-family: $mon-font;
+}
