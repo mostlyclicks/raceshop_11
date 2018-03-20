@@ -4,14 +4,18 @@
 	<% size = :product %>
 <% end %>
 
+<%#= controller.action_name %>
+
 <%# size ||= :large %>
 <% itemprop ||= nil %>
-<%= @flag %>
+<%#= @flag %>
 <% if image && image.attachment? %>
   <% if itemprop %>
     <%= image_tag image.attachment(:large), itemprop: itemprop %>
+
   <% else %>
-    <%= image_tag image.attachment(size) %>
+    <%= image_tag image.attachment(:large) %>
+
   <% end %>
 <% else %>
   <span class="image-placeholder <%= size %>"></span>
