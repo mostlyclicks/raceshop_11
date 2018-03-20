@@ -1,6 +1,12 @@
-<% size ||= :mini %>
-<% itemprop ||= nil %>
+<% if @flag == 'yes' %>
+	<% size = :large %>
+<% else %>
+	<% size = :product %>
+<% end %>
 
+<%# size ||= :large %>
+<% itemprop ||= nil %>
+<%= @flag %>
 <% if image && image.attachment? %>
   <% if itemprop %>
     <%= image_tag image.attachment(size), itemprop: itemprop %>
