@@ -9,7 +9,7 @@
 <%= @flag %>
 <% if image && image.attachment? %>
   <% if itemprop %>
-    <%= image_tag image.attachment(size), itemprop: itemprop %>
+    <%= image_tag image.attachment(:large), itemprop: itemprop %>
   <% else %>
     <%= image_tag image.attachment(size) %>
   <% end %>
