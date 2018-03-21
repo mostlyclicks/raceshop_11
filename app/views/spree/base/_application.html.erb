@@ -16,24 +16,31 @@
       </div>    
     </div>
 
-    <% if controller.controller_name == "home" %>
-      <div id="content" class="col-md-12 columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
-        <%= flash_messages %>
-        <%= yield %>
+
+    <div class="container">
+      <div class="row">
+        <% if controller.controller_name == "home" %>
+          <div id="content" class="col-md-12 columns <%#= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+            <%= flash_messages %>
+            <%= yield %>
+          </div>
+
+        <% else %>
+
+          <div class="col-md-2">
+            <%#= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>    
+          </div>
+
+          <div id="content" class="col-md-12 columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
+            <%= flash_messages %>
+            <%= yield %>
+          </div>
+
+        <% end %>        
       </div>
+    </div>
 
-    <% else %>
 
-      <div class="col-md-2">
-        <%= render partial: 'spree/shared/sidebar' if content_for? :sidebar %>    
-      </div>
-
-      <div id="content" class="col-md-10 columns <%= !content_for?(:sidebar) ? "sixteen" : "twelve omega" %>" data-hook>
-        <%= flash_messages %>
-        <%= yield %>
-      </div>
-
-    <% end %>
 
 
 
