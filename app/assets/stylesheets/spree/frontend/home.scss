@@ -1,10 +1,15 @@
 div.main-categories div {
 	height:100px;
 	background-color:#cdcdcd;
+	margin-top:30px;
 	h2 {
 		text-align:center;
 		text-transform:uppercase;
 		font-weight:700;
+		font-size:20px;
+		color:#000000;
+		text-shadow: 2px 2px 10px #ffffff;
+		padding-top:1em;
 
 	}
 }
@@ -12,30 +17,44 @@ div.main-categories div {
 
 
 #home-skis {
-	background-image:url('/assets/HOME-SKIS-RRH01LC_RAHLC01_HERO_ELITE_LT_TI_Konect_FCHC006_SPX_12_Konect_DUAL_B80_Black_Icon.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_SKIS.png');
 	background-size: cover;
+	border-right:1px solid white;
 }
 
 #home-boots {
-	background-image:url('/assets/HOME-BOOTS-LBG1030_RS-130.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_BOOTS.png');
 	background-size:cover;
+	border-right:1px solid white;
 }
 
 #home-poles {
-	background-image:url('/assets/HOME-POLES.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_POLES.png');
 	background-size:cover;
+	border-right:1px solid white;
 }
 
 #home-bindings {
-	background-image:url('/assets/HOME-BINDINGS-FCFA020_PX18_WC_RFlex_Wht.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_BINDINGS.png');
 	background-size:cover;
+	border-right:1px solid white;
 }
 
 #home-bags {
-	background-image:url('/assets/HOME-BAGS-DKFB100_SPEED_CARGO_BAG.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_BAGS.png');
 	background-size:cover;
+	border-right:1px solid white;
 }
 
 #home-accessories {
-	background-image:url('/assets/HERO-ACCESSORIES-RKHH100_HERO-9-FIS-IMPACTS-WITH-CHINGUARD.jpg');
+	background-image:url('/assets/CATEGORY_HOMEPAGE_ACCESSORIES.png');
+	background-size:cover;
+
+}
+
+
+#main-brands {
+	background-color:#292929;
+	height:200px;
+	img {margin-top:50px;}
 }
