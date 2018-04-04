@@ -11,18 +11,16 @@
       <figure id="logo" class="columns six" data-hook><%= logo img_options: { class: 'img-responsive', width: '138' } %></figure>
     </div>
 
-    <!-- coach / rossignol / dynastar -->
-    
-      <%# @current_taxonomy_root = params[:id].split('/')[0] %>
+    <!-- coach / rossignol / dynastar -->    
+    <% if params[:id].present? %>
+      <% @current_taxonomy_root = params[:id].split('/')[0] %>
+    <% end %>
   
-
-
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       	<% @taxonomies.each do |taxonomy| %>
-          
+          <!-- see if current taxonomy match with params then display appropriate nav -->
           <% if taxonomy.name.downcase == @current_taxonomy_root %>
 
           <li class="dropdown">
@@ -37,6 +35,7 @@
       </ul>
 
 
+    <% content_for 'account_utility_links' do %>
       <ul class="nav navbar-nav navbar-right">
         <li id="link-to-cart" data-hook>
           <noscript>
@@ -71,6 +70,9 @@
       </ul>
 
       <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+
+    <% end %>  
+
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
