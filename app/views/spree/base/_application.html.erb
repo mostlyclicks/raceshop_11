@@ -41,7 +41,12 @@
     </div>
 
 
-
+<style>
+  .hide-element{
+    display:hidden;
+    color:red !important;
+  }
+</style>
 
 
 
@@ -54,3 +59,17 @@
   <%= render partial: 'spree/shared/footer' %>
 
   </div>
+
+  <script>
+    //Hides home and product links
+    var bread = document.getElementById("breadcrumbs");
+    var crumbs = bread.firstChild.childNodes;
+
+    for (c = 0; c < crumbs.length; c++) {
+      var contentText = crumbs[c].textContent;
+     
+      if (contentText === 'Home' || contentText === 'Products') {
+        crumbs[c].style.display = "none";
+      }  
+    }
+  </script>
