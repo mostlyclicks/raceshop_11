@@ -15,24 +15,16 @@
     <% if params[:id].present? %>
       <% @current_taxonomy_root = params[:id].split('/')[0] %>
     <% end %>
-  
+
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      	<% @taxonomies.each do |taxonomy| %>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      
+        <% @taxonomies.each do |taxonomy| %>
           <!-- see if current taxonomy match with params then display appropriate nav -->
           <% if taxonomy.name.downcase == @current_taxonomy_root %>
-
-          <li class="dropdown">
-      			<%= link_to  '#', data: { toggle: "dropdown" }, "aria-haspopup" => "true" do %>
-      				<%= taxonomy.name %> <span class="caret"></span>
-      			<% end %>
-      			<%= nav_tree(taxonomy.root, @taxon, 1) %>
-      		</li>
+            <%= taxons_tree(taxonomy.root, @taxon, 1) %>
           <% end %>
-
-      	<% end %>
-      </ul>
+        <% end %>
+    </div>
 
 
     <% content_for 'account_utility_links' do %>
