@@ -1,5 +1,25 @@
 <h1 class="taxon-title"><%= @taxon.name %></h1>
 
+<% if @taxon.name == 'Rossignol' %>
+  <% @brand_class = 'rossignol' %>
+<% elsif @taxon.name == 'Dynastar' %>
+  <% @brand_class = 'dynastar' %>
+<% elsif @taxon.name == 'Coach' %>
+  <% @brand_class = 'coach' %>
+<% end %>
+
+
+<div class="container">
+<div class="row main-categories">
+  <% @taxon.children.each do |t| %>
+    <%= link_to seo_url(t) do %>
+      <div class="col-sm-2 home" id="<%= @brand_class %>-<%= t.name.downcase %>"><h2><%= t.name %></h2></div>
+    <% end %>
+  <% end %>
+</div>
+</div>
+
+
 <% content_for :sidebar do %>
   <div data-hook="taxon_sidebar_navigation">
     <%= render partial: 'spree/shared/taxonomies' %>
@@ -8,13 +28,15 @@
 <% end %>
 
 <div data-hook="taxon_products">
-  <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
+  <%#= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
 </div>
 
 <% unless params[:keywords].present? %>
   <div data-hook="taxon_children">
     <% cache [I18n.locale, @taxon] do %>
-      <%= render partial: 'taxon', collection: @taxon.children %>
+      <%#= render partial: 'taxon', collection: @taxon.children %>
     <% end %>
   </div>
 <% end %>
+
+
