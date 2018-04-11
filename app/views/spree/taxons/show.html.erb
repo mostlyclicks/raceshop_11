@@ -28,6 +28,10 @@
 <% end %>
 
 <div data-hook="taxon_products">
+  <%# if taxon.root? %>
+    <!-- #"ROOT" -->
+  <%# end %>
+  <%= params[:id] %>
   <%= render partial: 'spree/shared/products', locals: { products: @products, taxon: @taxon } %>
 </div>
 
