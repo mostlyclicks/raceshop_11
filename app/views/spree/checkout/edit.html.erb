@@ -1,9 +1,15 @@
 <div id="checkout" data-hook>
   <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 
+  <%#= checkout_progress %>
+
   <div class="row" data-hook="checkout_header">
-    <h1 class="columns three alpha" data-hook="checkout_title"><%= t('spree.checkout') %></h1>
-    <div class="columns thirteen omega" data-hook="checkout_progress"><%= checkout_progress %></div>
+    <div class='col-md-12'>
+      <h1 class="columns three alpha" data-hook="checkout_title"><%= Spree.t(:checkout) %></h1>
+      <div class="columns thirteen omega" data-hook="checkout_progress">
+        <%= checkout_progress %>  
+      </div>
+    </div>
   </div>
 
   <div class="row" data-hook="checkout_content">
