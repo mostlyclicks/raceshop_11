@@ -40,6 +40,8 @@ gem 'deface'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'aws-sdk', '< 3.0' #, '< 2.0'
+
+gem 'solidus_paypal_braintree', github: 'solidusio/solidus_paypal_braintree', branch: :master
 # gem 'loofah', '~> 2.2.1'
 
 group :development, :test do
