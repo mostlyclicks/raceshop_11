@@ -15,6 +15,7 @@
   <div class="row" data-hook="checkout_content">
 
     <div class="col-md-12 columns <%= if @order.state != 'confirm' then 'alpha twelve' else 'alpha omega sixteen' end %>" data-hook="checkout_form_wrapper">
+
       <div class="row">
         <div class="col-md-10" id="checkout-email">
         <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}", class: 'form-group' } do |form| %>
@@ -27,25 +28,11 @@
         </div>
       </div>
 
-
         <%#= @order.state? %>
         <%= render @order.state, form: form %>
 
-<!--         <%# if @order.state != 'confirm' %>
-          <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-2" style="border:1px solid red;">
-            <%#= render partial: 'summary', locals: { order: @order } %>
-          </div>
-        <%# end %> -->
-
-
       <% end %>
-
-
-
     </div>
-
-
-
   </div>
 </div>
 
