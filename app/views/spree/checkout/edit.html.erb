@@ -17,7 +17,7 @@
     <div class="col-md-12 columns <%= if @order.state != 'confirm' then 'alpha twelve' else 'alpha omega sixteen' end %>" data-hook="checkout_form_wrapper">
 
       <div class="row">
-        <div class="col-md-10" id="checkout-email">
+        <div class="col-md-8" id="checkout-email">
         <%= form_for @order, url: update_checkout_path(@order.state), html: { id: "checkout_form_#{@order.state}", class: 'form-group' } do |form| %>
           <% if @order.state == 'address' || !@order.email? %>
             <!-- <p class="field" style='clear: both'> -->
