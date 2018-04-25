@@ -1,6 +1,5 @@
 <div class="row">
-
-  <div class="col-md-5" data-hook="billing_fieldset_wrapper">
+  <div class="col-md-4" data-hook="billing_fieldset_wrapper">
     <div class="panel panel-default">
       <div class="panel-body">
         <fieldset id="billing" data-hook>
@@ -13,14 +12,12 @@
             <%= check_box_tag 'order[use_billing]', '1', @order.shipping_eq_billing_address? %>
             <%= label_tag :order_use_billing, t('spree.use_billing_address'), id: 'use_billing' %>
           </p>
-
         </fieldset>
       </div>
     </div>
   </div>
 
-
-  <div class="col-md-5" data-hook="shipping_fieldset_wrapper">
+  <div class="col-md-4" data-hook="shipping_fieldset_wrapper">
     <div class="panel panel-default">
       <div class="panel-body">
         <fieldset id="shipping" data-hook>
@@ -28,32 +25,29 @@
             <legend align="center">
               <%= t('spree.shipping_address') %>
             </legend>
-
-
             <%= render partial: 'spree/address/form', locals: { form: ship_form, address_type: 'shipping', address: @order.ship_address } %>
           <% end %>
         </fieldset>
-
-        <hr class="clear" />
-
-        <div class="form-buttons" data-hook="buttons">
-          <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary' %>
-          <% if try_spree_current_user %>
-            <span data-hook="save_user_address">
-              &nbsp; &nbsp;
-              <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
-              <%= label_tag :save_user_address, t('spree.save_my_address') %>
-            </span>
-          <% end %>
-        </div>
-
-
       </div>
     </div>
   </div>
 
+<div class="col-md-4">
+  <div class="form-buttons" data-hook="buttons">
+    <%= submit_tag t('spree.save_and_continue'), class: 'continue button primary btn btn-success btn-block btn-lg' %>
+    <% if try_spree_current_user %>
+      <span data-hook="save_user_address">
+        &nbsp; &nbsp;
+        <%= check_box_tag 'save_user_address', '1', try_spree_current_user.respond_to?(:persist_order_address) %>
+        <%= label_tag :save_user_address, t('spree.save_my_address') %>
+      </span>
+    <% end %>
+  </div>
+</div>
+
+
   <% if @order.state != 'confirm' %>
-    <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-2">
+    <div id="checkout-summary" data-hook="checkout_summary_box" class="col-md-4">
       <%= render partial: 'summary', locals: { order: @order } %>
     </div>
   <% end %>
