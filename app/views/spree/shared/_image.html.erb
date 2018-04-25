@@ -1,3 +1,22 @@
+
+<% size ||= :mini %>
+<% itemprop ||= nil %>
+
+<% if image && image.attachment? %>
+  <% if itemprop %>
+    <%= image_tag image.attachment(size), itemprop: itemprop %>
+  <% else %>
+    <%= image_tag image.attachment(size) %>
+  <% end %>
+<% else %>
+  <span class="image-placeholder <%= size %>"></span>
+<% end %>
+
+
+
+
+<% content_for(:image_2) do %>
+
 <% if @flag == 'yes' %>
 	<% size = :large %>
 <% else %>
@@ -12,11 +31,11 @@
 <% if image && image.attachment? %>
   <% if itemprop %>
     <%= image_tag image.attachment(:product), itemprop: itemprop %>
-
   <% else %>
     <%= image_tag image.attachment(:large) %>
-
   <% end %>
 <% else %>
   <span class="image-placeholder <%= size %>"></span>
+<% end %>
+
 <% end %>
