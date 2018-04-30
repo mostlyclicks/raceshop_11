@@ -6,7 +6,7 @@
 
 <br />
 
-<div class="form-buttons" data-hook="buttons">
+<div class="form-buttons text-right" data-hook="buttons" id="place-order">
   <% Spree::Frontend::Config[:require_terms_and_conditions_acceptance].tap do |requires_acceptance| %>
     <% if requires_acceptance %>
       <div class="terms_and_conditions" data-hook="terms_and_conditions">
@@ -18,7 +18,7 @@
 
     <%= submit_tag t('spree.place_order'),
       disabled: requires_acceptance,
-      class: "continue button primary #{ 'disabled' if requires_acceptance }" %>
+      class: "btn btn-success btn-lg continue button primary #{ 'disabled' if requires_acceptance }" %>
   <% end %>
 
   <script>Spree.disableSaveOnClick();</script>
