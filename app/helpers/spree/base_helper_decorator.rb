@@ -8,9 +8,11 @@ module Spree::BaseHelper
     end
   end
 
-	def logo(image_path = Spree::Config[:logo], img_options: {} )
-      link_to image_tag(image_path, img_options), spree.root_path
-  end
+ #  <%#= logo img_options: { class: 'img-responsive', width: '138' } %>
+
+	# def logo(image_path = Spree::Config[:logo], img_options: {} )
+ #      link_to image_tag(image_path, img_options), spree.root_path
+ #  end
 
   def logo_picker(taxon)
     if taxon == 'Rossignol'
