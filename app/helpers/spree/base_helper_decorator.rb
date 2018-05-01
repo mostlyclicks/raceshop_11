@@ -12,6 +12,18 @@ module Spree::BaseHelper
       link_to image_tag(image_path, img_options), spree.root_path
   end
 
+  def logo_picker(taxon)
+    if taxon == 'Rossignol'
+      link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/t/rossignol'
+    elsif taxon == 'Dynastar'
+      link_to image_tag('LOGO_DYNASTAR_HORIZONTAL.png', class: 'img-responsive', width: '138'), '/t/dynastar'
+    elsif taxon == 'Coach'
+      link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/t/coach'
+    else
+      link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/'
+    end
+  end
+
   def nav_tree(root_taxon, current_taxon, max_level = 1)
     return '' if max_level < 1 || root_taxon.children.empty?
     content_tag :ul, class: 'dropdown-menu' do
