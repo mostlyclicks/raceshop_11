@@ -9,7 +9,14 @@
         <span class="icon-bar"></span>
       </button>
       <figure id="logo" class="columns six" data-hook>
-        <%= logo_picker(@taxon.root.name) %>    
+
+       <%#= current_page?(root_url) %>
+
+        <% if @taxon %>
+          <%= logo_picker(@taxon.root.name) %>
+        <% elsif current_page?(root_url) %>
+          <%= link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/' %>
+        <% end %>
       </figure>
     </div>
 
