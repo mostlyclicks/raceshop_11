@@ -9,24 +9,9 @@
   </div>
 </div>
 
-  <!-- get current brand to show brand nav from product show pages -->
-  <% @product.taxons.each do |t| %>
-    <% if t.name == 'Rossignol' %>
-      <% @current_brand = 'rossignol' %>
-    <% elsif t.name == 'Dynastar' %>
-      <% @current_brand = 'dynastar' %>
-    <% elsif t.name == 'Coach' %>
-      <% @current_brand = 'coach' %>
-    <% end %>
-  <% end %>
+<!-- get current brand to show brand nav from product show pages -->
 
-<%= @current_brand %>
-<!-- Hello -->
-<% @product.taxons.each do |f| %>
-  <%= f.name %>
-<% end %>
-
-
+<% @current_brand = @taxon.parent.name.downcase %>
 
 
 <div class="row">
