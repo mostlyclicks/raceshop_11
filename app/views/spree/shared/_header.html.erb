@@ -34,7 +34,7 @@
         <% @taxonomies.each do |taxonomy| %>
         <%= @current_brand %> <%= @brand %>
           <!-- match taxon to show nav on product show --> 
-          <% if taxonomy.name.downcase == @brand %>
+          <% if taxonomy.name.downcase == nav_picker(@taxon.parent.name.downcase) %>
             <%= taxons_tree(taxonomy.root, @taxon, 1) %>
           <% end %>
         <% end %>

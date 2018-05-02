@@ -14,6 +14,10 @@ module Spree::BaseHelper
  #      link_to image_tag(image_path, img_options), spree.root_path
  #  end
 
+ def nav_picker(taxon)
+  @brand = taxon
+ end
+
   def logo_picker(taxon)
     if taxon == 'Rossignol'
       link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/t/rossignol'
