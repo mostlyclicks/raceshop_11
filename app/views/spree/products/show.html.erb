@@ -15,9 +15,14 @@
 
 <!-- get current brand to show brand nav from product show pages -->
 
+<% if @taxon.parent %>
+  <% @current_brand = @taxon.parent.name.downcase %>
+<% else %>
+
+  <% @current_brand = @taxon %>
+<% end %>
 
 
-<%#= @current_brand = @taxon.parent.name.downcase %>
 
 <%#= @brand = @current_brand %>
 
