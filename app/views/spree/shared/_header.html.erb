@@ -32,6 +32,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
 
         <% @taxonomies.each do |taxonomy| %>
+        <%= @current_brand %> <%= taxonomy.name %>
           <!-- match taxon to show nav on product show --> 
           <% if taxonomy.name.downcase == @current_brand %>
             <%= taxons_tree(taxonomy.root, @taxon, 1) %>
