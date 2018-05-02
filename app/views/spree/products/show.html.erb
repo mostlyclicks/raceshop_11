@@ -22,7 +22,9 @@
 
 <%= @current_brand %>
 <!-- Hello -->
-<%= @product.taxons.class %>
+<% @product.taxons.each do |f| %>
+  <%= f.name %>
+<% end %>
 
 
 
