@@ -9,11 +9,8 @@
   </div>
 </div>
 
+  <!-- get current brand to show brand nav from product show pages -->
   <% @product.taxons.each do |t| %>
-    <%#= t.name %>
-    <%# if t.name == "Skis" || t.name == "Poles" %>
-      <%# @flag = "yes" %>
-    <%# end %>
     <% if t.name == 'Rossignol' %>
       <% @current_brand = 'rossignol' %>
     <% elsif t.name == 'Dynastar' %>
