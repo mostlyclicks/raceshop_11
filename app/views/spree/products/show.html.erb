@@ -10,10 +10,22 @@
 </div>
 
   <% @product.taxons.each do |t| %>
-    <% if t.name == "Skis" || t.name == "Poles" %>
-      <% @flag = "yes" %>
+    <%#= t.name %>
+    <%# if t.name == "Skis" || t.name == "Poles" %>
+      <%# @flag = "yes" %>
+    <%# end %>
+    <% if t.name == 'Rossignol' %>
+      <% @current_brand = 'rossignol' %>
+    <% elsif t.name == 'Dynastar' %>
+      <% @current_brand = 'dynastar' %>
+    <% elsif t.name == 'Coach' %>
+      <% @current_brand = 'coach' %>
     <% end %>
   <% end %>
+
+
+
+
 
 <div class="row">
 
