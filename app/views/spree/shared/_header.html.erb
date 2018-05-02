@@ -25,63 +25,23 @@
       <% @current_taxonomy_root = params[:id].split('/')[0] %>
     <% end %>
 
-
-
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
 
-      
       <% if @taxon.name == 'Rossignol' || @taxon.name == 'Dynastar' || @taxon.name == 'Coach' %>
-        TAXON: <%= @brand = @taxon.name.downcase %>
+        <% @brand = @taxon.name.downcase %>
       <% elsif @taxon.parent.name %>
-        TAXON Parent: <%= @brand = @taxon.parent.name.downcase %>
+        <% @brand = @taxon.parent.name.downcase %>
       <% end %>
-      <!-- Taxon in category: <%#= @taxon.parent.name %><br />
-        Taxonmy in product show: <strong><%#= @taxon.parent.name %></strong>
- -->
-
-        <% @taxonomies.each do |taxonomy| %>
-          <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
-          <% if taxonomy.name.downcase == @brand %>
-            <%= taxons_tree(taxonomy.root, @taxon, 1) %>
-          <% end %>
+      
+      <% @taxonomies.each do |taxonomy| %>
+        <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
+        <% if taxonomy.name.downcase == @brand %>
+          <%= taxons_tree(taxonomy.root, @taxon, 1) %>
         <% end %>
+      <% end %>
 
-
-        <%# @taxonomies.each do |taxonomy| %>
-
-
-
-
-        <!-- Taxonomy: <%#= taxonomy.name %> |  -->
-
-          <!-- match taxon to show nav on product show --> 
-          <%#if taxonomy.name.downcase == nav_picker(@taxon.parent.name.downcase) %>
-            <%#= taxons_tree(taxonomy.root, @taxon, 1) %>
-          <%# end %>
-        <%# end %>
-
-
-      <%#= @current_brand %>
-      <%# if @current_brand %>
-        <%# @taxonomies.each do |taxonomy| %>
-          <!-- match taxon to show nav on product show --> 
-          <%# if taxonomy.name.downcase == @current_brand %>
-            <%#= taxons_tree(taxonomy.root, @taxon, 1) %>
-          <%# end %>
-        <%# end %>
-      <%# else %>
-        <%# @taxonomies.each do |taxonomy| %>
-          <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
-          <%# if taxonomy.name.downcase == @current_taxonomy_root %>
-            <%#= taxons_tree(taxonomy.root, @taxon, 1) %>
-          <%# end %>
-        <%# end %>
-      <%# end %>
     </div>
-
-
 
     <% content_for 'account_utility_links' do %>
       <ul class="nav navbar-nav navbar-right">
