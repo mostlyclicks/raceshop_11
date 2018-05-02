@@ -4,14 +4,18 @@
 <% @body_id = 'product-details' %>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-6">
     <h1 class="product-title" itemprop="name"><%= @product.name %></h1>
+  </div>
+  <div class="col-md-6">
+    <%#= yield :breadcrumbs_partial %>
+    <%= taxon_breadcrumbs(@taxon) %>
   </div>
 </div>
 
 <!-- get current brand to show brand nav from product show pages -->
 
-<% @current_brand = @taxon.parent.name.downcase %>
+<%= @current_brand = @taxon.parent.name.downcase %>
 
 
 <div class="row">

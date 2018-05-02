@@ -1,3 +1,7 @@
+  <% content_for :breadcrumbs_partial do %>
+      <%= taxon_breadcrumbs(@taxon) %>
+    <% end %>
+
   <%= render partial: 'spree/shared/header' %>
 
   <div class="container-fluid">
@@ -6,15 +10,19 @@
       <%= render partial: 'spree/shared/search' %>
 
 
+
+
   <div id="wrapper" class="row" data-hook>
 
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <%= taxon_breadcrumbs(@taxon) %>
+          <%= yield :breadcrumbs %>
         </div>    
       </div>    
     </div>
+
+   
 
 
     <div class="container">

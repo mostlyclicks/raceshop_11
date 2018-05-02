@@ -1,4 +1,16 @@
-<h1 class="taxon-title"><%= @taxon.name %></h1>
+<!-- <h1 class="taxon-title"><%= @taxon.name %></h1>
+ <%#= yield :breadcrumbs %> -->
+
+ <div class="row">
+  <div class="col-md-6">
+    <h1 class="product-title" itemprop="name"><%= @taxon.name %></h1>
+  </div>
+  <div class="col-md-6 text-right" style="border:1px solid red;">
+    <%#= yield :breadcrumbs_partial %>
+    <%= taxon_breadcrumbs(@taxon) %>
+  </div>
+</div>
+
 
 <% if @taxon.name == 'Rossignol' %>
   <% @brand_class = 'rossignol' %>
