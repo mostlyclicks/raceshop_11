@@ -30,22 +30,31 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
-      <%#= @current_brand %>
-      <% if @current_brand %>
+
         <% @taxonomies.each do |taxonomy| %>
           <!-- match taxon to show nav on product show --> 
           <% if taxonomy.name.downcase == @current_brand %>
             <%= taxons_tree(taxonomy.root, @taxon, 1) %>
           <% end %>
         <% end %>
-      <% else %>
-        <% @taxonomies.each do |taxonomy| %>
+
+
+      <%#= @current_brand %>
+      <%# if @current_brand %>
+        <%# @taxonomies.each do |taxonomy| %>
+          <!-- match taxon to show nav on product show --> 
+          <%# if taxonomy.name.downcase == @current_brand %>
+            <%#= taxons_tree(taxonomy.root, @taxon, 1) %>
+          <%# end %>
+        <%# end %>
+      <%# else %>
+        <%# @taxonomies.each do |taxonomy| %>
           <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
-          <% if taxonomy.name.downcase == @current_taxonomy_root %>
-            <%= taxons_tree(taxonomy.root, @taxon, 1) %>
-          <% end %>
-        <% end %>
-      <% end %>
+          <%# if taxonomy.name.downcase == @current_taxonomy_root %>
+            <%#= taxons_tree(taxonomy.root, @taxon, 1) %>
+          <%# end %>
+        <%# end %>
+      <%# end %>
     </div>
 
 
