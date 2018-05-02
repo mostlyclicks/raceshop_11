@@ -30,7 +30,7 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
-
+      <%= @current_brand %>
       <% if @current_brand %>
         <% @taxonomies.each do |taxonomy| %>
           <!-- match taxon to show nav on product show --> 
