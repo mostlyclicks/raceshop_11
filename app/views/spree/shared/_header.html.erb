@@ -27,12 +27,13 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">   
-
+    <% if @taxon %>
       <% if @taxon.name == 'Rossignol' || @taxon.name == 'Dynastar' || @taxon.name == 'Coach' %>
         <% @brand = @taxon.name.downcase %>
       <% elsif @taxon.parent.name %>
         <% @brand = @taxon.parent.name.downcase %>
       <% end %>
+    <% end %>
       
       <% @taxonomies.each do |taxonomy| %>
         <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
