@@ -5,8 +5,14 @@
   <%= render partial: 'spree/shared/header' %>
 
   <div class="container-fluid">
+  <% if current_page?('/') %>
 
-      <%= render partial: 'spree/shared/search' %>
+  
+    
+  <% else %>
+    <%= render partial: 'spree/shared/search' %>
+  <% end %>
+
 
   <div id="wrapper" class="row" data-hook>
 

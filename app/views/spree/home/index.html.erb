@@ -1,43 +1,39 @@
+<% if spree_user_session %>
 
-<div class="row main-categories">
-	<div class="col-sm-2 home" id="home-skis"><h2>Skis</h2></div>
-	<div class="col-sm-2 home" id="home-boots"><h2>Boots</h2></div>
-	<div class="col-sm-2 home" id="home-poles"><h2>Poles</h2></div>
-	<div class="col-sm-2 home" id="home-bindings"><h2>Bindings</h2></div>
-	<div class="col-sm-2 home" id="home-bags"><h2>Bags</h2></div>
-	<div class="col-sm-2 home" id="home-accessories"><h2>Accessories</h2></div>
-</div>
-<div class="row" id="main-brands">
-	<div class="col-md-2 col-md-offset-1">
-		<%= image_tag 'brands-rossi.png', alt: "Rossignol Logo", class: "img-responsive" %>
-	</div>
-	<div class="col-md-2">
-		<%= image_tag 'brands-dynastar.png', alt: "Dynastar Logo", class: "img-responsive" %>
-	</div>
-	<div class="col-md-2">
-		<%= image_tag 'brands-lange.png', alt: "Lange Logo", class: "img-responsive" %>
-	</div>
-	<div class="col-md-2">
-		<%= image_tag 'brands-look.png', alt: "LOOK Logo", class: "img-responsive" %>
-	</div>
-	<div class="col-md-2">
-		<%= image_tag 'brands-kerma.png', alt: "Kerma Logo", class: "img-responsive" %>
-	</div>
-</div>
-
-
-
-
-		<% content_for :sidebar do %>
-		  <div data-hook="homepage_sidebar_navigation">
-		    <%#= render partial: 'spree/shared/taxonomies' %>
-		  </div>
-		<% end %>		
-
-
-
-		<div data-hook="homepage_products">
-		  <% cache(cache_key_for_products) do %>
-		    <%#= render partial: 'spree/shared/products', locals: { products: @products } %>
-		  <% end %>
+	<div class="row" id="main-brands">
+		<div class="col-md-2 col-md-offset-2 text-center">
+			<%= link_to (image_tag 'brands-rossi.png', alt: "Rossignol Logo", class: "img-responsive"), '/t/rossignol' %>
 		</div>
+		<div class="col-md-2 col-md-offset-4 text-center">
+			<%= link_to (image_tag 'brands-dynastar.png', alt: "Dynastar Logo", class: "img-responsive"), '/t/dynastar' %>
+		</div>
+
+		<%= spree_user_signed_in? %>
+
+<% else %>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<%#= render partial: 'spree/shared/login' %>
+			<% if flash[:alert] %>
+	  		<div class="flash errors alert alert-info"><%= flash[:alert] %></div>
+			<% end %>
+			<% @body_id = 'login' %>
+			<div id="existing-customer">
+			  <div class="alert alert-info">
+			  	<%= Spree.t(:login) %>
+			  </div>
+			  <div data-hook="login">
+			    <%= render partial: 'spree/shared/login' %>
+			    <hr>
+			    <%#= link_to Spree.t(:create_a_new_account), spree.signup_path %> 
+			    <%= link_to 'Sponsorship Request Application', 'https://www.groupathlete.com/registrations/new' %> | <%= link_to Spree.t(:forgot_password), spree.recover_password_path %>
+			  </div>
+			</div>
+			<div data-hook="login_extras"></div>
+		</div>
+	</div>
+
+<% end %>
+
+
