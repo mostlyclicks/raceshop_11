@@ -10,7 +10,7 @@ Spree.config do |config|
   # from address for transactional emails
   config.mails_from = "store@example.com"
 
-  Spree::PermittedAttributes.user_attributes.push :fis_number, :discount_level #, :preferred_racecenter
+  Spree::PermittedAttributes.user_attributes.push :fis_number, :discount_level, :ahtlete_brand #, :preferred_racecenter
 
   # Uncomment to stop tracking inventory levels in the application
   # config.track_inventory_levels = false
