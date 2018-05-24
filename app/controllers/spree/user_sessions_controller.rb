@@ -22,11 +22,11 @@ class Spree::UserSessionsController < Devise::SessionsController
           brand = current_spree_user.athlete_brand
           
           if brand == "Rossignol"
-            redirect_to 'http://rs11.herokuapp.com/t/rossignol'
+            redirect_to '/t/rossignol'
           elsif brand == "Dynastar"
-            redirect_to 'http://rs11.herokuapp.com/t/dynastar'
+            redirect_to '/t/dynastar'
           elsif brand == "Coach"
-            redirect_to 'http://rs11.herokuapp.com/t/coach'
+            redirect_to '/t/coach'
           end
           
         end
