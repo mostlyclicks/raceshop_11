@@ -3,7 +3,7 @@
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%# max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
 <%= current_spree_user.athlete_brand %>
-<%= @taxon.name %>
+<%#= @taxon.name %>
 
 
 
