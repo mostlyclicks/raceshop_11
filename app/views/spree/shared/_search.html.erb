@@ -2,6 +2,10 @@
 
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%# max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
+<%= current_spree_user.athlete_brand %>
+<%= @taxon.name %>
+
+
 
 <div class="container">
     <div class="row">    
@@ -10,17 +14,20 @@
             <div class="input-group">
                 
                 <div class="input-group-btn search-panel">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                       <span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                      <li><%= link_to t('spree.all_departments'), '' %></li>
-                      <% @taxons.each do |taxon| %>
-                        <li><%= link_to taxon.name, taxon.id.to_s %></li>
-                      <% end %>
-                    </ul>
+                    </button> -->
+                    <!-- <ul class="dropdown-menu" role="menu">
+                      <li><%#= link_to t('spree.all_departments'), '' %></li>
+
+                      <%# @taxons.each do |taxon| %>
+                        <li>
+                          <%#= link_to taxon.name, taxon.id.to_s %>  
+                        </li>
+                      <%# end %>
+                    </ul> -->
                 </div>
-                <input type="hidden" name="search_param" value="all" id="search_param">         
+                <input type="hidden" name="search_param" value="<%= current_spree_user.athlete_brand %>" id="search_param">         
                 <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control' %>
                 <span class="input-group-btn">
                   <%= button_tag(type: 'submit', class: "btn btn-default") do %>
