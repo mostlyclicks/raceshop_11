@@ -20,7 +20,7 @@ class Spree::UserSessionsController < Devise::SessionsController
           #redirect_back_or_default(after_sign_in_path_for(spree_current_user))
 
           brand = current_spree_user.athlete_brand
-          puts brand
+          
           if brand == "Rossignol"
             redirect_to 'http://rs11.herokuapp.com/t/rossignol'
           elsif brand == "Dynastar"
@@ -28,8 +28,7 @@ class Spree::UserSessionsController < Devise::SessionsController
           elsif brand == "Coach"
             redirect_to 'http://rs11.herokuapp.com/t/coach'
           end
-          puts brand + " LEAVING REDIRECT"
-
+          
         end
         format.js { render success_json }
       end
