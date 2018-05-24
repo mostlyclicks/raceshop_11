@@ -21,9 +21,6 @@ class Spree::UserSessionsController < Devise::SessionsController
     if spree_user_signed_in?
       respond_to do |format|
         format.html do
-          flash[:success] = Spree.t(:logged_in_succesfully)
-          # redirect_back_or_default(after_sign_in_path_for(spree_current_user))
-          #switch_to_brand(current_spree_user.athlete_brand)
 
           brand = current_spree_user.athlete_brand
 
@@ -34,6 +31,15 @@ class Spree::UserSessionsController < Devise::SessionsController
           elsif brand == "Coach"
             redirect_to 'http://rs11.herokuapp.com/t/coach'
           end
+
+
+
+
+          flash[:success] = Spree.t(:logged_in_succesfully)
+          # redirect_back_or_default(after_sign_in_path_for(spree_current_user))
+          #switch_to_brand(current_spree_user.athlete_brand)
+
+
 
         end
         format.js { render success_json }
