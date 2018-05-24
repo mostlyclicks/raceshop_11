@@ -35,6 +35,9 @@
     <%= f.label :discount_level %>
     <%= f.text_field :discount_level, class: 'fullwidth' %>
 
+    <%= f.label :athlete_brand %>
+    <%= f.text_field :athlete_brand, class: 'fullwidth' %>
+
     <% if Spree::Config[:can_restrict_stock_management] && can?(:display, Spree::StockLocation) %>
       <div data-hook="admin_user_form_stock_locations" class="field">
         <%= label_tag nil, plural_resource_name(Spree::StockLocation) %>

@@ -1,5 +1,6 @@
-<% if spree_user_session %>
 
+<% if spree_user_session %>
+	<%= current_spree_user.athlete_brand %>
 	<div class="row" id="main-brands">
 		<div class="col-md-2 col-md-offset-2 text-center">
 			<%= link_to (image_tag 'brands-rossi.png', alt: "Rossignol Logo", class: "img-responsive"), '/t/rossignol' %>
@@ -7,8 +8,6 @@
 		<div class="col-md-2 col-md-offset-4 text-center">
 			<%= link_to (image_tag 'brands-dynastar.png', alt: "Dynastar Logo", class: "img-responsive"), '/t/dynastar' %>
 		</div>
-
-		<%= spree_user_signed_in? %>
 
 <% else %>
 

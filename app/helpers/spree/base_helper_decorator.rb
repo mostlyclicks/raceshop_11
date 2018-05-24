@@ -14,6 +14,19 @@ module Spree::BaseHelper
  #      link_to image_tag(image_path, img_options), spree.root_path
  #  end
 
+
+  # def switch_to_brand(brand)
+  #     if brand == "Rossignol"
+  #       # "Hello"
+  #       redirect_to 'https://www.apple.com'
+
+  #     elsif brand == "Dynastar"
+  #       #redirect_to '/t/dynastar'
+  #     elsif brand == "Coach"
+  #       #redirect_to '/t/coach'
+  #     end
+  # end
+
  def nav_picker(taxon)
   @brand = taxon
  end
