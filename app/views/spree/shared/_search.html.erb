@@ -2,14 +2,14 @@
 
 <% @taxons = @taxon && @taxon.parent ? @taxon.parent.children : Spree::Taxon.roots %>
 <%# max_level = Spree::Config[:max_level_in_taxons_menu] || 1 %>
-<%= current_spree_user.athlete_brand %>
+<%#= current_spree_user.athlete_brand %>
 <%#= @taxon.name %>
 
 
 
 <div class="container">
     <div class="row">    
-        <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
+        <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-7">
           <%= form_tag spree.products_path, method: :get do %>
             <div class="input-group">
                 
@@ -28,9 +28,9 @@
                     </ul> -->
                 </div>
                 <input type="hidden" name="search_param" value="<%= current_spree_user.athlete_brand %>" id="search_param">         
-                <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control' %>
+                <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control', style: "border:none;border-bottom:1px solid #cdcdcd;border-top:none;box-shadow:none;" %>
                 <span class="input-group-btn">
-                  <%= button_tag(type: 'submit', class: "btn btn-default") do %>
+                  <%= button_tag(type: 'submit', class: "btn btn-default", style: "border:none;border-radius:0px;border-bottom:1px solid #cdcdcd;") do %>
                     <span class="glyphicon glyphicon-search"></span>
                   <% end %>
                   <%#= submit_tag (<span class="glyphicon glyphicon-search"></span>).to_html', name: nil, class: 'btn btn-default' %>
