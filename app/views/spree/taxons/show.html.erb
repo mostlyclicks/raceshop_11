@@ -6,10 +6,8 @@
     <h1 class="product-title" itemprop="name"><%= @taxon.name %></h1>
     <p class="text-left"><%= taxon_breadcrumbs(@taxon) %></p>
   </div>
-  <div class="col-md-6 text-right" style="border:1px solid red;">
-    Login items
-    <%#= yield :breadcrumbs_partial %>
-    <%#= taxon_breadcrumbs(@taxon) %>
+  <div class="col-md-6 text-right">
+    <%= render partial: 'spree/shared/user_session' %>
   </div>
 </div>
 

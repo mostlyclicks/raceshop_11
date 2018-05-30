@@ -1,0 +1,40 @@
+<section id="user-session-controls">
+	
+	<ul class="nav navbar-nav navbar-right">
+        <li id="link-to-cart" data-hook>
+          <noscript>
+            <%= link_to t('spree.cart'), spree.cart_path %>
+          </noscript>
+          &nbsp;
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if spree_user_signed_in? %>
+          <li>
+            <%= link_to spree_current_user.email, edit_account_path(spree_current_user) %>    
+          </li>
+          <li>
+            <%= link_to ('FIS#: ' + spree_current_user.fis_number), edit_account_path(spree_current_user) unless spree_current_user.fis_number.nil? %>
+          </li>
+        <% end %>  
+
+        <% if spree_user_signed_in? %>
+          <li>
+            <%= link_to 'Logout', logout_path %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to 'Sign up', signup_path %>
+          </li>
+          <li>
+            <%= link_to "Login", login_path %>
+          </li>
+        <% end %>
+      </ul>
+
+      <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+
+
+
+</section>
