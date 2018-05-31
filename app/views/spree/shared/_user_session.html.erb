@@ -14,26 +14,28 @@
           <li>
             <%= link_to spree_current_user.email, edit_account_path(spree_current_user) %>    
           </li>
-          <li>
-            <%= link_to ('FIS#: ' + spree_current_user.fis_number), edit_account_path(spree_current_user) unless spree_current_user.fis_number.nil? %>
-          </li>
+<!--           <li>
+            <%#= link_to ('FIS#: ' + spree_current_user.fis_number), edit_account_path(spree_current_user) unless spree_current_user.fis_number.nil? %>
+          </li> -->
         <% end %>  
+
+        <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
 
         <% if spree_user_signed_in? %>
           <li>
-            <%= link_to 'Logout', logout_path %>
+            <%= link_to 'Log out', logout_path %>
           </li>
         <% else %>
           <li>
             <%= link_to 'Sign up', signup_path %>
           </li>
           <li>
-            <%= link_to "Login", login_path %>
+            <%= link_to "Log in", login_path %>
           </li>
         <% end %>
       </ul>
 
-      <script>Spree.fetch_cart('<%= j spree.cart_link_path %>')</script>
+      
 
 
 
