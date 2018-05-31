@@ -53,6 +53,13 @@
   <div>
 <% end %>
 
+<hr />
 <% if paginated_products.respond_to?(:total_pages) %>
-  <%= paginate paginated_products %>
+  <div class="containter">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <%= paginate paginated_products %>
+      </div>
+    </div>    
+  </div>
 <% end %>
