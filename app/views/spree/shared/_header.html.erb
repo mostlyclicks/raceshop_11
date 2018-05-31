@@ -14,7 +14,8 @@
 
         <% if @taxon %>
           <%= logo_picker(@taxon.root.name) %>
-        <% elsif current_page?(root_url) %>
+        <%# elsif current_page?(root_url) %>
+        <% else %>
           <%= link_to image_tag('Logo_GROUPE_2016.png', class: 'img-responsive', width: '138'), '/' %>
         <% end %>
       </figure>
@@ -46,7 +47,7 @@
 
     <% content_for 'account_utility_links' do %>
 
-   
+
       <ul class="nav navbar-nav navbar-right">
         <li id="link-to-cart" data-hook>
           <noscript>
