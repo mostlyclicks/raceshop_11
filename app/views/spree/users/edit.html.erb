@@ -5,7 +5,7 @@
 		<div class="panel panel-default">
 		<div class="panel-body">
 
-		  <div class="alert alert-info"><%= Spree.t(:editing_user) %></div>
+		  <div class="alert alert-info"><%= Spree.t(:edit_user) %></div>
 
 		  <div data-hook="account_edit">
 		    <%= form_for Spree::User.new, as: @user, url: spree.user_path(@user), method: :put do |f| %>

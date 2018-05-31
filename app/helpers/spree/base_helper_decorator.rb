@@ -38,8 +38,10 @@ module Spree::BaseHelper
       link_to image_tag('LOGO_DYNASTAR_HORIZONTAL.png', class: 'img-responsive', width: '138'), '/t/dynastar'
     elsif taxon == 'Coach'
       link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/t/coach'
+    elsif controller_name == 'users'
+      link_to image_tag('Logo_GROUPE_2016.png', class: 'img-responsive', width: '138'), '/'
     else
-      link_to image_tag('Rossignol_Line_RED.png', class: 'img-responsive', width: '138'), '/'
+      link_to image_tag('Logo_GROUPE_2016.png', class: 'img-responsive', width: '138'), '/'
     end
   end
 
