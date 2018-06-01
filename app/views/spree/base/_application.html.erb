@@ -3,13 +3,14 @@
     <% end %>
 
   <%= render partial: 'spree/shared/header' %>
-  <div class="container-fluid">
-  <% if current_page?('/') || controller_name == 'users' %>
-  
-  <% else %>
-    <%= render partial: 'spree/shared/search' %>
-  <% end %>
 
+  <div class="container-fluid">
+
+    <% if controller_name == "taxons" || controller_name == "products" %>
+      <%= render partial: 'spree/shared/search' %>
+    <% else %>
+             
+    <% end %>
 
   <div id="wrapper" class="row" data-hook>
 

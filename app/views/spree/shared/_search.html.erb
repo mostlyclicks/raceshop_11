@@ -10,41 +10,18 @@
         <div class="col-xs-12 col-sm-5 col-sm-offset-7">
           <%= form_tag spree.products_path, method: :get do %>
             <div class="input-group">
-                
-                <div class="input-group-btn search-panel">
-                    <!-- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                      <span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button> -->
-                    <!-- <ul class="dropdown-menu" role="menu">
-                      <li><%#= link_to t('spree.all_departments'), '' %></li>
-
-                      <%# @taxons.each do |taxon| %>
-                        <li>
-                          <%#= link_to taxon.name, taxon.id.to_s %>  
-                        </li>
-                      <%# end %>
-                    </ul> -->
-                </div>
-                <input type="hidden" name="search_param" value="<%= current_spree_user.athlete_brand if spree_user_signed_in? %>" id="search_param">         
-                <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control', style: "border:none;border-bottom:1px solid #cdcdcd;border-top:none;box-shadow:none;" %>
-                <span class="input-group-btn">
-                  <%= button_tag(type: 'submit', class: "btn btn-default", style: "border:none;border-radius:0px;border-bottom:1px solid #cdcdcd;") do %>
-                    <span class="glyphicon glyphicon-search"></span>
-                  <% end %>
-                  <%#= submit_tag (<span class="glyphicon glyphicon-search"></span>).to_html', name: nil, class: 'btn btn-default' %>
-                    <!-- <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button></span> -->
-                
-                
+              <input type="hidden" name="search_param" value="<%= current_spree_user.athlete_brand if spree_user_signed_in? %>" id="search_param">         
+              <%= search_field_tag :keywords, params[:keywords], placeholder: t('spree.search'), class: 'form-control', style: "border:none;border-bottom:1px solid #cdcdcd;border-top:none;box-shadow:none;" %>
+              <span class="input-group-btn">
+                <%= button_tag(type: 'submit', class: "btn btn-default", style: "border:none;border-radius:0px;border-bottom:1px solid #cdcdcd;") do %>
+                  <span class="glyphicon glyphicon-search"></span>
+                <% end %>
             </div>
            
           <% end %>
       </div>
   </div>
 </div>
-
-
-
-
 
 <script>
   $(document).ready(function(e){
