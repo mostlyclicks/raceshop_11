@@ -3,6 +3,14 @@
   paginated_products ||= products
 %>
 
+<% if current_spree_user.athlete_brand == 'Rossignol' %>
+  <% @brand_class = 'rossignol' %>
+<% elsif current_spree_user.athlete_brand == 'Dynastar' %>
+  <% @brand_class = 'dynastar' %>
+<% elsif current_spree_user.athlete_brand == 'Coach' %>
+  <% @brand_class = 'coach' %>
+<% end %>
+
 <% content_for :head do %>
   <% if paginated_products.respond_to?(:total_pages) %>
     <%= rel_next_prev_link_tags paginated_products %>
