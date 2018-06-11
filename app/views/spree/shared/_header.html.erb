@@ -36,10 +36,12 @@
       <% end %>
     <% end %>
       
-      <% @taxonomies.each do |taxonomy| %>
-        <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
-        <% if taxonomy.name.downcase == @brand %>
-          <%= taxons_tree(taxonomy.root, @taxon, 1) %>
+      <% if @taxonomies %>
+        <% @taxonomies.each do |taxonomy| %>
+          <!-- see if current taxonomy match with params then display appropriate nav @current_taxonomy_root--> 
+          <% if taxonomy.name.downcase == @brand %>
+            <%= taxons_tree(taxonomy.root, @taxon, 1) %>
+          <% end %>
         <% end %>
       <% end %>
 
