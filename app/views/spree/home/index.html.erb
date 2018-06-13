@@ -1,13 +1,60 @@
 
 <% if spree_user_session %>
-	<%= current_spree_user.athlete_brand %>
-	<div class="row" id="main-brands">
-		<div class="col-md-2 col-md-offset-2 text-center">
-			<%= link_to (image_tag 'brands-rossi.png', alt: "Rossignol Logo", class: "img-responsive"), '/t/rossignol' %>
+	<%#= @current_user_brand = current_spree_user.athlete_brand %>
+	<section id="home-message">
+	<% if @current_user_brand == 'Rossignol' %>
+
+
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<%= image_tag 'Rossignol_Line_RED.png', alt: 'Rossignol Logo', class: "img-responsive" %>		
+			</div>
 		</div>
-		<div class="col-md-2 col-md-offset-4 text-center">
-			<%= link_to (image_tag 'brands-dynastar.png', alt: "Dynastar Logo", class: "img-responsive"), '/t/dynastar' %>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<h1>Welcome to the <%= @current_user_brand %> Race Shop</h1>
+				<p class="lead">Congratulations, you are now part of the <%= @current_user_brand %> Athlete family. As a <%= current_spree_user.discount_level.upcase %> level athlete you will enjoy significant discounts on Rossignol skis and gear.</p>
+				<br /><br />
+
+				<%= link_to 'Start Shopping', '/t/rossignol', class: 'btn btn-lg btn-danger' %>
+			</div>
 		</div>
+
+
+	<% elsif @current_user_brand == 'Dynastar' %>
+
+
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<%= image_tag 'LOGO_DYNASTAR_HORIZONTAL.png', alt: 'Dynastar Logo', class: "img-responsive" %>		
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<h1>Welcome to the <%= @current_user_brand %> Race Shop</h1>
+				<p class="lead">Congratulations, you are now part of the <%= @current_user_brand %> Athlete family. As a <%= current_spree_user.discount_level.upcase %> level athlete you will enjoy significant discounts on <%= @current_user_brand %> skis and gear.</p>
+				<br /><br />
+
+				<%= link_to 'Start Shopping', '/t/dynastar', class: 'btn btn-lg btn-danger' %>
+			</div>
+		</div>
+
+
+	<% elsif @current_user_brand == 'Coach' %>
+
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2 text-center">
+				<h1>Welcome to the <%= @current_user_brand %> Race Shop</h1>
+				<p class="lead">Congratulations, you are now part of the Rossignol Group Athlete family. As a coach you will enjoy significant discounts on Rossignol Group skis and gear.</p>
+				<br /><br />
+
+				<%= link_to 'Start Shopping', '/t/coach', class: 'btn btn-lg btn-danger' %>
+			</div>
+		</div>
+
+
+	<% end %> 
+	</section>
 
 <% else %>
 
