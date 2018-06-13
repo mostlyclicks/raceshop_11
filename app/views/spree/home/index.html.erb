@@ -1,6 +1,6 @@
 
 <% if spree_user_session %>
-	<%= @current_user_brand = current_spree_user.athlete_brand %>
+	<% @current_user_brand = current_spree_user.athlete_brand %>
 	<section id="home-message">
 	<% if @current_user_brand == 'Rossignol' %>
 
