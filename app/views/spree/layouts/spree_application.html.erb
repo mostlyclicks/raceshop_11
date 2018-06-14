@@ -8,7 +8,7 @@
     <%= render partial: 'spree/shared/head' %>
   </head>
 
-    <% if current_spree_user.athlete_brand %>
+    <% if current_spree_user %>
 			<% if current_spree_user.athlete_brand == 'Rossignol' %>
 				<% @bg_image = "/assets/WelcomePage_RossiShop.jpg" %>
 			<% elsif current_spree_user.athlete_brand == 'Dynastar' %> 
@@ -19,9 +19,11 @@
   	<% end %>
 
   <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body" 
-  	style="background-image:url(<%= @bg_image %>);background-size:cover;background-repeat: no-repeat;background-position:50 50;">
+  	<% if controller_name == 'home' %>
+  		style="background-image:url(<%= @bg_image %>);background-size:cover;background-repeat: no-repeat;background-position:50 50;">
+  	<% end %>
 
-
+		
     <%= render layout_partial %>
 
   </body>
