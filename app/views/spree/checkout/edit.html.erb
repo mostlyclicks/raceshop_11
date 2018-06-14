@@ -1,9 +1,19 @@
 <div id="checkout" data-hook>
   <%= render partial: 'spree/shared/error_messages', locals: { target: @order } %>
 
-  <%#= checkout_progress %>
+  <%# if @order.checkout_steps.index == 4 %>
+    
+  <%# end %>
+  <div class="row">
+    <div class="col-md-12" >
+      <p class="checkout-continue-shopping text-center">Hey, did you forget something? You can continue to shop, we'll look after your cart. <%= link_to 'Continue Shopping', '/t/' + current_spree_user.athlete_brand.downcase, class: 'btn btn-primary' %></p>
+    </div>
+  </div>
+
+  <%#= @order.checkout_steps[4] %>
 
   <div class="row" data-hook="checkout_header">
+
     <div class='col-md-12'>
       <h1 class="columns three alpha" data-hook="checkout_title"><%= Spree.t(:checkout) %></h1>
       <div class="columns thirteen omega" data-hook="checkout_progress">
