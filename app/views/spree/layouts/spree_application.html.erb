@@ -7,7 +7,20 @@
   <head data-hook="inside_head">
     <%= render partial: 'spree/shared/head' %>
   </head>
-  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body" >
+
+    <% if current_spree_user.athlete_brand %>
+			<% if current_spree_user.athlete_brand == 'Rossignol' %>
+				<% @bg_image = "/assets/WelcomePage_RossiShop.jpg" %>
+			<% elsif current_spree_user.athlete_brand == 'Dynastar' %> 
+				<% @bg_image = "/assets/WelcomePage_DynaShop.jpg" %>
+			<% elsif current_spree_user.athlete_brand == 'Coach' %>
+				<% @bg_image = "/assets/WelcomePage_CoachShop.jpg" %>
+			<% end %>
+  	<% end %>
+
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body" 
+  	style="background-image:url(<%= @bg_image %>);background-size:cover;background-repeat: no-repeat;background-position:50 50;">
+
 
     <%= render layout_partial %>
 
