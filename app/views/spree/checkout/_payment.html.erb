@@ -8,23 +8,17 @@
 
 
     <div class="col-md-5">
-
+      <%= form.label :credit_card_info %><br />
       <div class="card_options">
+        
         <div class="radio">
           <%= radio_button_tag 'use_existing_card', 'yes', true %>
             <label for="use_existing_card_yes">
               <%= t('spree.use_existing_cc') %>
             </label>
           </div>
-        <div class="radio">     
-          <%= radio_button_tag 'use_existing_card', 'no' %>
-          <label for="use_existing_card_no">
-            <%= t('spree.use_new_cc_or_payment_method') %>
-          </label>
-        </div>
-      </div>
-
-      <div id="existing_cards">
+        <div id="existing_cards">
+        
         <span class="field" data-hook="existing_cards">
           <table class="existing-credit-card-list table" style="margin-left:-28px;">
             <tbody>
@@ -43,6 +37,17 @@
           </table>
         </span>
       </div>
+        <div class="radio">     
+          <%= radio_button_tag 'use_existing_card', 'no' %>
+          <label for="use_existing_card_no">
+            <%= t('spree.use_new_cc_or_payment_method') %>
+          </label>
+        </div>
+      </div>
+
+      <br /><br >
+
+
     <% end %>
 
 

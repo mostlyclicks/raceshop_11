@@ -4,7 +4,7 @@
 
   <%= render partial: 'spree/shared/header' %>
 
-  <div class="container-fluid">
+  <div class="container-fluid" id="main-body">
 
     <% if controller_name == "taxons" || controller_name == "products" %>
       <%= render partial: 'spree/shared/search' %>
@@ -50,12 +50,7 @@
   </div>
   </div>
 
-  <div class="container-fluid" style="position:absolute;bottom:0;width:100%;left:0;">
-     <div class="row" >
-        <%= render partial: 'spree/shared/footer' %>
-        
-      </div>
-  </div>
+ 
 
 
   <script>

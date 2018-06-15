@@ -1,7 +1,12 @@
+<%#= action_name %>
+<% if action_name == 'index' %>
+	<% @index_style = "height:90vh;" %>
+<% end %>
 
 <% if spree_user_session %>
 	<% @current_user_brand = current_spree_user.athlete_brand %>
-	<section id="home-message">
+	<section id="home-message" style="<%#= @index_style %>">
+
 	<% if @current_user_brand == 'Rossignol' %>
 
 
